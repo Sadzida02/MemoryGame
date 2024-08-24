@@ -52,7 +52,7 @@ function click(m, n) {
 
     numOfOpenedFields++;
 
-    document.getElementById("m"+ m + n).innerHTML = mat[m][n];
+    document.getElementById("m"+ m + n).innerHTML = matrix[m][n];
 
     if(numOfOpenedFields == 1) {
         currentOpenedField = {
