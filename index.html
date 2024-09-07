@@ -16,129 +16,43 @@
 
         <div id="game">
 
-            <button id="m00" onclick="click(0,0)"></button>
-            <button id="m01" onclick="click(0,1)"></button>
-            <button id="m02" onclick="click(0,2)"></button>
-            <button id="m03" onclick="click(0,3)"></button>
-           
-            <br>
+        <button id="m00" onclick="press(0,0)"></button>
+	    <button id="m01" onclick="press(0,1)"></button>
+	    <button id="m02" onclick="press(0,2)"></button>
+	    <button id="m03" onclick="press(0,3)"></button>
+	    <button id="m04" onclick="press(0,4)"></button>
+	    <br>
+	    <button id="m10" onclick="press(1,0)"></button>
+	    <button id="m11" onclick="press(1,1)"></button>
+	    <button id="m12" onclick="press(1,2)"></button>
+	    <button id="m13" onclick="press(1,3)"></button>
+	    <button id="m14" onclick="press(1,4)"></button>
+        <br>
+	    <button id="m20" onclick="press(2,0)"></button>
+	    <button id="m21" onclick="press(2,1)"></button>
+	    <button id="m22" onclick="press(2,2)"></button>
+	    <button id="m23" onclick="press(2,3)"></button>
+	    <button id="m24" onclick="press(2,4)"></button>
+	    <br>
 
-            <button id="m10" onclick="click(1,0)"></button>
-            <button id="m11" onclick="click(1,1)"></button>
-            <button id="m12" onclick="click(1,2)"></button>
-            <button id="m13" onclick="click(1,3)"></button>
-            
-            <br>
-
-            <button id="m20" onclick="click(2,0)"></button>
-            <button id="m21" onclick="click(2,1)"></button>
-            <button id="m22" onclick="click(2,2)"></button>
-            <button id="m23" onclick="click(2,3)"></button>
-            
-            <br>
-
-            <button id="m30" onclick="click(3,0)"></button>
-            <button id="m31" onclick="click(3,1)"></button>
-            <button id="m32" onclick="click(3,2)"></button>
-            <button id="m33" onclick="click(3,3)"></button>
-           
-            <br>
-
+	    <button id="m30" onclick="press(3,0)"></button>
+	    <button id="m31" onclick="press(3,1)"></button>
+	    <button id="m32" onclick="press(3,2)"></button>
+	    <button id="m33" onclick="press(3,3)"></button>
+	    <button id="m34" onclick="press(3,4)"></button>
+	    <br>
+        <button id="m40" onclick="press(4,0)"></button>
+	    <button id="m41" onclick="press(4,1)"></button>
+	    <button id="m42" onclick="press(4,2)"></button>
+	    <button id="m43" onclick="press(4,3)"></button>
+	    <button id="m44" onclick="press(4,4)"></button>
           
             
 
         </div>
     </div>
 
-    <script type="text/javascript">		
-    function postaviMatricu() {
-        let mat = [["-", "-", "-", "-"],
-            ["-", "-", "-", "-"],
-            ["-", "-", "-", "-"],
-            ["-", "-", "-", "-"]];
-
-        let brojPostavljenih = 0;
-        let trenutnoPostavljamo = 1;
-
-        while (brojPostavljenih < 16) {
-            let x = Math.floor(Math.random() * 4);
-            let y = Math.floor(Math.random() * 4);
-
-            if (mat[x][y] == "-") {
-                mat[x][y] = trenutnoPostavljamo;
-                brojPostavljenih++;
-    
-                if (brojPostavljenih % 2 == 0) {
-                    trenutnoPostavljamo++;
-                }
-            }
-        }
-
-        for (let i =0; i<4; i++) {
-            for (let j=0; j<4; j++) {
-                document.getElementById("m" + i + j).innerHTML = "-";
-            }
-        }
-
-        return mat;
-    }
-    let mat = postaviMatricu();
-    let pogodjenaPolja = [[false, false, false, false],
-        [false, false, false, false],
-        [false, false, false, false],
-        [false, false, false, false]];
-
-    let brojOtvorenihPolja = 0;
-    let trenutnoOtvorenoPolje = null;
-
-    function click(a, b) {
-        if (pogodjenaPolja[a][b]) {
-            return;
-        }
-
-        if (brojOtvorenihPolja >= 2) {
-            return;
-        }
-
-        brojOtvorenihPolja++;
-
-        document.getElementById("m"+a+b).innerHTML = mat[a][b];
-
-        if (brojOtvorenihPolja == 1) {
-            trenutnoOtvorenoPolje = {
-                i: a,
-                j: b
-            };
-        } else if (brojOtvorenihPolja == 2) {
-            if (mat[trenutnoOtvorenoPolje.i][trenutnoOtvorenoPolje.j] == mat[a][b]) {
-                pogodjenaPolja[a][b] = true;
-                pogodjenaPolja[trenutnoOtvorenoPolje.i][trenutnoOtvorenoPolje.j] = true;
-                brojOtvorenihPolja = 0;
-                    document.getElementById("m"+a+b).style.backgroundColor = "green";
-                    document.getElementById("m"+trenutnoOtvorenoPolje.i+trenutnoOtvorenoPolje.j).style.backgroundColor = "green"
-                
-            } else {
-                setTimeout(function () {
-                    document.getElementById("m"+a+b).innerHTML = "-";
-                    document.getElementById("m"+trenutnoOtvorenoPolje.i+trenutnoOtvorenoPolje.j).innerHTML = "-";
-                brojOtvorenihPolja = 0;
-
-                }, 1000);
-            }
-        }
-/*
-        setTimeout(function () {
-            if (pogodjenaPolja[a][b]) {
-                return;
-            }
-
-            document.getElementById("b"+a+b).innerHTML = "-";
-            brojOtvorenihPolja--;
-        }, 2000);
-*/
-    }
-
-</script>
+    <script src="/script.js"></script>
 </body>
 
 

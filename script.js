@@ -41,7 +41,7 @@ let guessedFields = [[false, false, false, false, false],
 let numOfOpenedFields = 0;
 let currentOpenedField = null;
 
-function click(m, n) {
+function press(m, n) {
     if (guessedFields[m][n]) {
         return;
     }

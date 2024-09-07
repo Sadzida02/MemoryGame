@@ -7,10 +7,9 @@ body {
 
 .main {
     height: 100vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-items: center;
+    
 }
 
 h1 {
@@ -24,18 +23,20 @@ h1 {
     
     
 }
-.game {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.game {   
+    text-color: white;
+    text-font: bold;
+    text-size: 24px;
 }
 button {
-    width: 120px;
+    width: 180px;
     height: 90px;
     background-color: pink;
     margin: 3px;
     border: 2px solid white;
     border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 36px;
 }
 
