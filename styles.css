@@ -20,6 +20,7 @@ h1 {
     font-weight: 400;
     font-style: normal;
     padding: 0px 20px;
+    text-align: center;
     
     
 }
@@ -30,7 +31,7 @@ h1 {
 }
 button {
     width: 180px;
-    height: 90px;
+    height: 110px;
     background-color: pink;
     margin: 3px;
     border: 2px solid white;
@@ -39,4 +40,14 @@ button {
     font-weight: bold;
     font-size: 36px;
 }
+
+.congrats-message {
+    color: #c44b2d;
+    background-color: white;
+    text-align: center;
+    font-size: 150px;
+    padding:50px;
+}
+
+
 

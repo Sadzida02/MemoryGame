@@ -1,15 +1,23 @@
 function setMatrix() {
+    if (gameFinished) {
+        // Display the "Congrats" message here
+        document.getElementById("game").remove();
+        document.getElementById("message").innerHTML = "Congrats, you won! 🐱";
+        document.getElementById("message").classList.add("congrats-message");
+        
+        
+
+    }
     let matrix = [["?", "?", "?", "?", "?"],
                   ["?", "?", "?", "?", "?"],
                   ["?", "?", "?", "?", "?"],
-                  ["?", "?", "?", "?", "?"],
-                  ["?", "?", "?", "?", "?"]];
+                  ["?", "?", "?", "?", "?"],];
 
     let numberSet = 0; //matrix has 0 elements before it is filled
     let current= 1; //first number/content to start filling your matrix with
 
-    while (numberSet < 25) {
-        let x = Math.floor(Math.random()*5);  //random index to start filling
+    while (numberSet < 20) {
+        let x = Math.floor(Math.random()*4);  //random index to start filling
         let y = Math.floor(Math.random()*5); //random second index
 
         if (matrix[x][y] == "?") {   //if chosen field has a queastion mark fill it with first content
@@ -22,7 +30,7 @@ function setMatrix() {
         }
     }
 
-    for (let i=0; i<5; i++) {        //to put question marks when not opened
+    for (let i=0; i<4; i++) {        //to put question marks when not opened
         for (let j=0; j<5; j++) {
             document.getElementById("m" + i + j).innerHTML="?";
         }
@@ -30,18 +38,20 @@ function setMatrix() {
 
     return matrix;
 }
-
+let gameFinished = false;
 let matrix = setMatrix();
 let guessedFields = [[false, false, false, false, false],
                      [false, false, false, false, false],
                      [false, false, false, false, false],
-                     [false, false, false, false, false],
-                     [false, false, false, false, false]];
+                     [false, false, false, false, false],];
 
 let numOfOpenedFields = 0;
 let currentOpenedField = null;
 
 function press(m, n) {
+    if (gameFinished) {
+        return;
+    }
     if (guessedFields[m][n]) {
         return;
     }
@@ -73,6 +83,15 @@ function press(m, n) {
                 document.getElementById("m" + currentOpenedField.i+currentOpenedField.j).innerHTML = "?";
                 numOfOpenedFields = 0;
             }, 1000);
+        }
+    }
+
+    if (numOfOpenedFields === 0) {
+        // Check if all pairs are matched
+        if (guessedFields.every(row => row.every(field => field))) {
+            gameFinished = true;
+
+            setMatrix(); // Call setMatrix() again to display the "Congrats" message
         }
     }
 }
