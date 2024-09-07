@@ -4,8 +4,6 @@ function setMatrix() {
         document.getElementById("game").remove();
         document.getElementById("message").innerHTML = "Congrats, you won! 🐱";
         document.getElementById("message").classList.add("congrats-message");
-        
-        
 
     }
     let matrix = [["?", "?", "?", "?", "?"],
@@ -62,7 +60,7 @@ function press(m, n) {
 
     numOfOpenedFields++; //1 one field is currently opened
 
-    document.getElementById("m"+ m + n).innerHTML = matrix[m][n]; //sets the inner htl of the elemnt of particular ID to the corresponding value in the matrix
+    document.getElementById("m"+ m + n).innerHTML = matrix[m][n]; //stores elemnt of particular ID to the corresponding value in the matrix
 
     if(numOfOpenedFields == 1) {
         currentOpenedField = {      //if one field is open, it stores cordinates into current opened field variable
